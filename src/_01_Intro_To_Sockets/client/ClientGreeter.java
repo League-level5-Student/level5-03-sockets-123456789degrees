@@ -7,18 +7,24 @@ public class ClientGreeter {
 
    public static void main(String [] args) {
 	  //1. Create a String for the ip address of the server. 
-	   String ip = InetAddress.getLocalHost().getHostAddress();;
+	  String ip = null;
+	try {
+		ip = InetAddress.getLocalHost().getHostAddress();
+	} catch (UnknownHostException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	  // If you don't know how to find a computer's ip address, ask about ifconfig on linux/mac and ipconfig on windows.
-      
+	  
       //2. Create an integer for the server's port number
-      int port = 0; 
+      int port = 8080; 
       //3. Surround steps 4-9 in a try-catch block that catches any IOExceptions.
       try {
     	  Socket socket = new Socket(ip, port);
     	  DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-    	  dos.writeUTF("Hello World!");
+    	  dos.writeUTF("Hello!");
     	  DataInputStream dis = new DataInputStream(socket.getInputStream());
-    	  dis.readUTF();
+    	  System.out.println(dis.readUTF());
     	  socket.close();
       }
       catch (Exception e){
