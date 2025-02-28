@@ -40,7 +40,7 @@ public class Client {
 		while (connection.isConnected()) {
 			try {
 				String message = (String) is.readObject();
-				System.out.println("Client got message: " + message);
+				ChatApp.text.append("\nServer: " + message);
 			//	JOptionPane.showMessageDialog(null, is.readObject());
 			//	System.out.println(is.readObject());
 			} catch (Exception e) {

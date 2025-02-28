@@ -37,8 +37,8 @@ public class Server {
 
 			while (connection.isConnected()) {
 				try {
-					JOptionPane.showMessageDialog(null, is.readObject());
-					System.out.println(is.readObject());
+					String message = (String) is.readObject();
+					ChatApp.text.append("\nClient: " + message);
 				}catch(EOFException e) {
 					JOptionPane.showMessageDialog(null, "Connection Lost");
 					System.exit(0);

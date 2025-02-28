@@ -20,7 +20,7 @@ public class ChatApp{
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
 	JTextField message = new JTextField(25);
-	JTextArea text = new JTextArea();
+	static JTextArea text = new JTextArea();
 	JButton button = new JButton("Send");
 	Server server;
 	Client client; 
